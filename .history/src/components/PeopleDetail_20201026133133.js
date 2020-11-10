@@ -18,18 +18,17 @@ export default class PeopleDetail extends Component {
     });
   };
 
-  fetchPeopleDetail = async () => {
-    const { people } = this.props.location.state;
-    console.log(people);
-    const { films } = await getPeopleDetail();
-    this.setState({
-      films,
-    });
-  };
+  // fetchPeopleDetail = async () => {
+  //   const { people } = this.props.location.state;
+  //   console.log(people);
+  //   const { films } = await getPeopleDetail();
+  //   this.setState({
+  //     films,
+  //   });
+  // };
 
   render() {
     const { characters } = this.state;
-    console.log(this.state);
     return (
       <div>
         <p> {characters.name}</p>
@@ -39,6 +38,14 @@ export default class PeopleDetail extends Component {
         <p>
           <Link to={`/films/${characters.films}`}>{characters.films}</Link>
         </p>
+        // <Films films={this.state.films} />
+        // <li>{this.props.people.name}</li>
+        // <li>{people.gender}</li>
+        // <li>{people.eye_color}</li>
+        //{' '}
+        <li>
+          // <a href={`${this.props.people.films}`}>Films</a> */} //{' '}
+        </li>
       </div>
     );
   }

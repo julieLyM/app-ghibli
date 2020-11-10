@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getFilmsSrv, getPeopleByIdSrv } from '../service/data';
+import { Link } from 'react-router-dom';
 import {
   ContainerFilms,
   ContainerByFilm,
@@ -33,7 +34,7 @@ export default class Films extends Component {
 
   render() {
     const { films, peoples } = this.state;
-    console.log(peoples);
+    console.log(this.state.peoples);
     return (
       <PageFilms>
         <FilmTitle>Studio Ghibli Movies</FilmTitle>

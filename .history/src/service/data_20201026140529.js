@@ -8,7 +8,6 @@ export async function getPeoplesSrv() {
 
 export async function getPeopleDetail({ films }) {
   const filmsPromise = films.map((film) => axios.get(film));
-  console.log('test');
   return filmsPromise;
 }
 

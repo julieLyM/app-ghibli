@@ -6,10 +6,16 @@ export async function getPeoplesSrv() {
   return data;
 }
 
+function format(datas, films) {
+  return {
+    films: datas.slice(0, films.length),
+  };
+}
+
 export async function getPeopleDetail({ films }) {
   const filmsPromise = films.map((film) => axios.get(film));
-  console.log('test');
-  return filmsPromise;
+  const datas = await Promise.all([...filmsPromise]);
+  return format(datas, films);
 }
 
 export async function getPeopleByIdSrv(id) {

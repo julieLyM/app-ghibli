@@ -18,14 +18,14 @@ export default class PeopleDetail extends Component {
     });
   };
 
-  fetchPeopleDetail = async () => {
-    const { people } = this.props.location.state;
-    console.log(people);
-    const { films } = await getPeopleDetail();
-    this.setState({
-      films,
-    });
-  };
+  // fetchPeopleDetail = async () => {
+  //   const { people } = this.props.location.state;
+  //   console.log(people);
+  //   const { films } = await getPeopleDetail();
+  //   this.setState({
+  //     films,
+  //   });
+  // };
 
   render() {
     const { characters } = this.state;

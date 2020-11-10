@@ -6,16 +6,24 @@ export async function getPeoplesSrv() {
   return data;
 }
 
-export async function getPeopleDetail({ films }) {
+function format(datas, films) {
+  return {
+    films: datas.slice(0, films.length),
+    // starships: datas.slice(films.length),
+  };
+}
+
+export async function getPeopleDetail({ films, starships }) {
   const filmsPromise = films.map((film) => axios.get(film));
-  console.log('test');
-  return filmsPromise;
+  const starshipsPromise = starships.map((starship) => axios.get(starship));
+  const datas = await Promise.all([...filmsPromise]);
+  return format(datas, films);
 }
 
 export async function getPeopleByIdSrv(id) {
   const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/${id}
   `);
-  console.log('service with id', data);
+  console.log(data);
   return data;
 }
 

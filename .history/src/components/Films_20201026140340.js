@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getFilmsSrv, getPeopleByIdSrv } from '../service/data';
+import { Link } from 'react-router-dom';
 import {
   ContainerFilms,
   ContainerByFilm,

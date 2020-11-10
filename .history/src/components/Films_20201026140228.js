@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getFilmsSrv, getPeopleByIdSrv } from '../service/data';
+import { getFilmsSrv,getPeopleByIdSrv } from '../service/data';
+import { Link } from 'react-router-dom';
 import {
   ContainerFilms,
   ContainerByFilm,
@@ -10,7 +11,7 @@ import {
 export default class Films extends Component {
   state = {
     films: [],
-    peoples: [],
+    peoples: []
   };
 
   componentDidMount() {
@@ -24,16 +25,16 @@ export default class Films extends Component {
     });
   }
 
-  async fetchPeople() {
-    const getPeople = await getPeopleByIdSrv();
+  async fetchPeople () {
+    const getPeople = await getPeopleByIdSrv()
     this.setState({
-      peoples: getPeople,
-    });
+      peoples : getPeople,
+    })
   }
 
   render() {
     const { films, peoples } = this.state;
-    console.log(peoples);
+    console.log(this.state);
     return (
       <PageFilms>
         <FilmTitle>Studio Ghibli Movies</FilmTitle>
@@ -44,6 +45,7 @@ export default class Films extends Component {
               <p>{element.description}</p>
               <p>{element.producer}</p>
               <p>{element.release_date}</p>
+            
             </ContainerByFilm>
           ))}
         </ContainerFilms>
